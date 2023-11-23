@@ -41,5 +41,21 @@ const person2 = {
 };
 console.log(person2.greet("Hello"));
 console.log(person2.greet("Good Afternoon"));
+const reserve = (departureDate, returnDateOrDepartingFrom, departingFromOrDestination, destination)=>{
+    if (returnDateOrDepartingFrom instanceof Date && destination) return {
+        departureDate: departureDate,
+        returnDate: returnDateOrDepartingFrom,
+        departingFrom: departingFromOrDestination,
+        destination: destination
+    };
+    else if (typeof returnDateOrDepartingFrom === "string") return {
+        departureDate: departureDate,
+        departingFrom: departingFromOrDestination,
+        destination: departingFromOrDestination
+    };
+    throw new Error("Invalid details provided");
+};
+console.log(reserve(new Date(), new Date(), "London", "Paris"));
+console.log(reserve(new Date(), "New York", "Washington"));
 
 //# sourceMappingURL=index.9caf0027.js.map

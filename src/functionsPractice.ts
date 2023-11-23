@@ -84,4 +84,63 @@ const person2: PersonWithFunction = {
 console.log(person2.greet('Hello'))
 console.log(person2.greet('Good Afternoon'))
 
+//Function overloading
+
+type Reservation = {
+  departureDate: Date;
+  returnDate?: Date;
+  departingFrom: string;
+  destination: string;
+}
+
+
+
+type Reserve = {
+  (
+  departureDate: Date,
+  returningDate: Date,
+  departingFrom: string,
+  destination: string
+  ) : Reservation| never;
+  (
+    departureDate: Date,
+    departingFrom: string,
+    destination: string
+  ) : | Reservation | never;
+};
+
+const reserve: Reserve = (
+  departureDate: Date,
+  returnDateOrDepartingFrom: Date | string,
+  departingFromOrDestination: string,
+  destination?: string
+) => {
+  if ( returnDateOrDepartingFrom instanceof Date && destination){
+    return {
+    departureDate: departureDate,
+    returnDate: returnDateOrDepartingFrom,
+    departingFrom: departingFromOrDestination,
+    destination: destination
+    };
+
+  } else if (typeof returnDateOrDepartingFrom === 'string'){
+    return {
+      departureDate: departureDate,
+      departingFrom: departingFromOrDestination,
+      destination: departingFromOrDestination
+    }
+  }
+  throw new Error('Invalid details provided')
+};
+
+
+
+
+console.log(reserve(new Date(), new Date(), 'London', 'Paris'))
+console.log(reserve(new Date(), "New York", "Washington"));
+
+
+
+
+
 
