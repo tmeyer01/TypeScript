@@ -5,3 +5,5 @@ const intro = (name: string, age: number):string => {
 }
 
 console.log(intro('John', 25))
+
+// save as java script except you need to declare the type of the parameters and the return type

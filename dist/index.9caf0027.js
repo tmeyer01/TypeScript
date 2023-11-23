@@ -2,6 +2,7 @@
 const intro = (name, age)=>{
     return `Hello my name is ${name} and I am ${age} years old`;
 };
-console.log(intro("John", 25));
+console.log(intro("John", 25)) // save as java script except you need to declare the type of the parameters and the return type
+;
 
 //# sourceMappingURL=index.9caf0027.js.map
