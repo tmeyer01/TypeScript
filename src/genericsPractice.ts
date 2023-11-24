@@ -47,18 +47,31 @@ type genericMap = {
 
 
 
-
 const mapping: genericMap = (array: any[], f: Function) => {
-  let results: any[] = [];
 
-  if (array.length !== 0) {
-    for (let i = 0; i < array.length; i++) {
-      let item = array[i];
-      results.push(f(item));
-    }
-    return results;
+  if (array.length === 0) {
+    return array;
   }
-  return [];
+  let reuslts = [];
+
+  for (let i = 0; i < array.length; i++) {
+    reuslts.push(f(array[i]))
+  }
+  return reuslts;
+}
+
+const map = <T, U>(array: T[], func:(item: T) => U) =>{
+  if (array.length === 0) {
+    return array;
+  }
+
+  let results = [];
+
+  for (let i = 0; i < array.length; i++) {
+    results.push(func(array[i]));
+  }
+  return results;
+
 }
 
 
@@ -74,6 +87,9 @@ const covertToString = (item: number) => {
   return item.toString()
 }
 
+console.log('Times array by two results', map(numbers2, timesBytwo));
+console.log('Adds another animal', map(strings, addAnotherAnimal));
+console.log('Coverts to string', map(numbers2, covertToString));
+
+
 console.log('Times array by two results', mapping(numbers2, timesBytwo));
-console.log('Adds another animal', mapping(strings, addAnotherAnimal));
-console.log('Coverts to string', mapping(numbers2, covertToString));
