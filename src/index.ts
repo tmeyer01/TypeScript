@@ -223,7 +223,7 @@ const airplanes: Airplaes = [
 
 //Tuples
 
-let person: [string, string, number?]
+// let person: [string, string, number?]
 
 type ListOfStudents = [ number, boolean, ...string[]];
 
