@@ -29,14 +29,15 @@ class User {
     }
 }
 class AdminUser extends User {
-    constructor(name, email, age, isAdmin){
+    constructor(name, email, age, isAdmin, usersReport){
         super(name, email, age);
         this.isAdmin = true;
         this.isAdmin = isAdmin;
+        this.usersReport = usersReport;
     }
 }
 const user = new User("Johnny", "bah", 99);
-const adminUser = new AdminUser("Oak", "doe", 99, true);
+const adminUser = new AdminUser("Oak", "doe", 99, true, 1000);
 console.log(user);
 console.log(adminUser);
 

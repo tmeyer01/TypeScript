@@ -52,15 +52,17 @@ class User {
 
 class AdminUser extends User {
   isAdmin: boolean = true;
+  usersReport: number;
 
-  constructor(name: string, email: string, age: number, isAdmin: boolean) {
+  constructor(name: string, email: string, age: number, isAdmin: boolean, usersReport: number) {
     super(name, email, age);
     this.isAdmin = isAdmin;
+    this.usersReport = usersReport;
   }
 }
 
 const user = new User('Johnny', 'bah', 99);
-const adminUser = new AdminUser('Oak', 'doe', 99, true);
+const adminUser = new AdminUser('Oak', 'doe', 99, true, 1000);
 
 console.log(user)
 console.log(adminUser)
