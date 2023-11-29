@@ -70,7 +70,7 @@ console.log(adminUser)
 
 
 class PersonPeople {
-  private name: string;
+  protected name: string;
   age: number;
 
   constructor(name: string, age: number) {
@@ -85,8 +85,18 @@ class PersonPeople {
 
 let Lenny = new PersonPeople('Lenny', 99);
 
+
+
 console.log(Lenny.getName())
 
 
+class AdminPerson extends PersonPeople {
 
-console.log('HELLO WORLD')
+   returnName() {
+    return this.name;
+  }
+}
+
+let LennyAdmin = new AdminPerson('Lenny2', 99);
+
+console.log(LennyAdmin.returnName())

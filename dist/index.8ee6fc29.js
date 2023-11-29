@@ -51,6 +51,12 @@ class PersonPeople {
 }
 let Lenny = new PersonPeople("Lenny", 99);
 console.log(Lenny.getName());
-console.log("HELLO WORLD");
+class AdminPerson extends PersonPeople {
+    returnName() {
+        return this.name;
+    }
+}
+let LennyAdmin = new AdminPerson("Lenny2", 99);
+console.log(LennyAdmin.returnName());
 
 //# sourceMappingURL=index.8ee6fc29.js.map
