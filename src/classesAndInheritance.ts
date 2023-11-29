@@ -66,3 +66,27 @@ const adminUser = new AdminUser('Oak', 'doe', 99, true, 1000);
 
 console.log(user)
 console.log(adminUser)
+
+
+
+class PersonPeople {
+  private name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  getName() {
+    return this.name;
+  }
+}
+
+let Lenny = new PersonPeople('Lenny', 99);
+
+console.log(Lenny.getName())
+
+
+
+console.log('HELLO WORLD')
