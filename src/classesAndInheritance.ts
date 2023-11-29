@@ -68,35 +68,25 @@ console.log(user)
 console.log(adminUser)
 
 
+// Using shorthand for constructor function
+// By declaring a constructor with a public name and age, we can skip declaring porperties in the class
+// below is the same as above.
+class Person2 {
+  constructor(public name: string, public age: number) {}
 
-class PersonPeople {
-  protected name: string;
-  age: number;
-
-  constructor(name: string, age: number) {
-    this.name = name;
-    this.age = age;
-  }
-
-  getName() {
+  public getName(){
     return this.name;
   }
 }
 
-let Lenny = new PersonPeople('Lenny', 99);
-
-
-
-console.log(Lenny.getName())
-
-
-class AdminPerson extends PersonPeople {
-
-   returnName() {
+class Admin2 extends Person2 {
+  public returnName(){
     return this.name;
   }
 }
 
-let LennyAdmin = new AdminPerson('Lenny2', 99);
+let jeff = new Person2('Jeffory', 99);
+let adminJeff = new Admin2('Jeffory the admin', 99);
 
-console.log(LennyAdmin.returnName())
+console.log(jeff.getName())
+console.log(adminJeff.returnName())

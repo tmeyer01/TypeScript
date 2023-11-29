@@ -40,7 +40,10 @@ const user = new User("Johnny", "bah", 99);
 const adminUser = new AdminUser("Oak", "doe", 99, true, 1000);
 console.log(user);
 console.log(adminUser);
-class PersonPeople {
+// Using shorthand for constructor function
+// By declaring a constructor with a public name and age, we can skip declaring porperties in the class
+// below is the same as above.
+class Person2 {
     constructor(name, age){
         this.name = name;
         this.age = age;
@@ -49,14 +52,14 @@ class PersonPeople {
         return this.name;
     }
 }
-let Lenny = new PersonPeople("Lenny", 99);
-console.log(Lenny.getName());
-class AdminPerson extends PersonPeople {
+class Admin2 extends Person2 {
     returnName() {
         return this.name;
     }
 }
-let LennyAdmin = new AdminPerson("Lenny2", 99);
-console.log(LennyAdmin.returnName());
+let jeff = new Person2("Jeffory", 99);
+let adminJeff = new Admin2("Jeffory the admin", 99);
+console.log(jeff.getName());
+console.log(adminJeff.returnName());
 
 //# sourceMappingURL=index.8ee6fc29.js.map
