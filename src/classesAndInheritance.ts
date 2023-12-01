@@ -100,34 +100,48 @@
 
 
 class PersonClass {
-  private _age: number | undefined;
 
-  constructor(private name: string) {}
+  private testUsersAge(age: number) {
+    if(age > 200 || age < 0) {
+      throw new Error('The age must be within range of 0-200')
+    }
 
-  public getName(){
-    return this.name;
+    return age;
   }
 
+  constructor(private _name: string, private _age: number) {
+    this.testUsersAge(_age);
+    this._age = _age;
+
+  }
+
+
+  public set name(name: string) {
+    this._name = name;
+  }
+
+  public get name() {
+    return this._name;
+  }
+
+  //set methods can only take max of 1 parameter
   public set age(age: number) {
-   if(age > 200 || age < 0) {
-     throw new Error('Invalid age')
-   }
+    this.testUsersAge(age);
     this._age = age;
   }
 
+  //get accesors can not have parameters and can only return a value
   public get age() {
-    if(this._age === undefined) {
-    throw new Error(
-      'Age property has not been set yet'
-    );
+    return this._age;
   }
-  return this._age;
-}
+
 }
 
-const person : PersonClass = new PersonClass('John');
-person.age = 29;
+const person : PersonClass = new PersonClass('John', 23);
+// person.age = 29;
 
+console.log(person)
+console.log(person.name)
 console.log(person.age)
 
 
