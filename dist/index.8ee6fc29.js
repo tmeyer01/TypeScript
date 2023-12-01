@@ -79,6 +79,13 @@ class PersonClass {
         if (age > 200 || age < 0) throw new Error("Invalid age");
         this._age = age;
     }
+    get age() {
+        if (this._age === undefined) throw new Error("Age property has not been set yet");
+        return this._age;
+    }
 }
+const person = new PersonClass("John");
+person.age = 29;
+console.log(person.age);
 
 //# sourceMappingURL=index.8ee6fc29.js.map

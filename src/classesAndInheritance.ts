@@ -114,4 +114,20 @@ class PersonClass {
    }
     this._age = age;
   }
+
+  public get age() {
+    if(this._age === undefined) {
+    throw new Error(
+      'Age property has not been set yet'
+    );
+  }
+  return this._age;
 }
+}
+
+const person : PersonClass = new PersonClass('John');
+person.age = 29;
+
+console.log(person.age)
+
+
